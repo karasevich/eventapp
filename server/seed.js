@@ -10,68 +10,104 @@ const connection = mysql.createConnection({
 const events = [
   {
     title: 'Event 1',
-    description: 'Lorem ipsum....',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam interdum accumsan accumsan. Aenean rhoncus odio sed quam pulvinar, at scelerisque mi dictum. Quisque nunc elit, venenatis vitae',
     event_date: '2024-05-20 10:00:00',
     organizer: 'Organizer 1'
   },
   {
     title: 'Event 2',
-    description: 'Lorem ipsum....',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam interdum accumsan accumsan. Aenean rhoncus odio sed quam pulvinar, at scelerisque mi dictum. Quisque nunc elit, venenatis vitae',
     event_date: '2024-06-15 14:00:00',
     organizer: 'Organizer 2'
   },
   {
     title: 'Event 3',
-    description: 'Lorem ipsum....',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam interdum accumsan accumsan. Aenean rhoncus odio sed quam pulvinar, at scelerisque mi dictum. Quisque nunc elit, venenatis vitae',
     event_date: '2024-07-10 18:00:00',
     organizer: 'Organizer 3'
   },
   {
     title: 'Event 4',
-    description: 'Lorem ipsum....',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam interdum accumsan accumsan. Aenean rhoncus odio sed quam pulvinar, at scelerisque mi dictum. Quisque nunc elit, venenatis vitae',
     event_date: '2024-07-12 18:00:00',
     organizer: 'Organizer 4'
   },
   {
     title: 'Event 5',
-    description: 'Lorem ipsum....',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam interdum accumsan accumsan. Aenean rhoncus odio sed quam pulvinar, at scelerisque mi dictum. Quisque nunc elit, venenatis vitae',
     event_date: '2024-07-13 18:00:00',
     organizer: 'Organizer 5'
   },
   {
     title: 'Event 6',
-    description: 'Lorem ipsum....',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam interdum accumsan accumsan. Aenean rhoncus odio sed quam pulvinar, at scelerisque mi dictum. Quisque nunc elit, venenatis vitae',
     event_date: '2024-07-14 18:00:00',
     organizer: 'Organizer 6'
   },
   {
     title: 'Event 7',
-    description: 'Lorem ipsum....',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam interdum accumsan accumsan. Aenean rhoncus odio sed quam pulvinar, at scelerisque mi dictum. Quisque nunc elit, venenatis vitae',
     event_date: '2024-07-15 18:00:00',
     organizer: 'Organizer 7'
   },
   {
     title: 'Event 8',
-    description: 'Lorem ipsum....',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam interdum accumsan accumsan. Aenean rhoncus odio sed quam pulvinar, at scelerisque mi dictum. Quisque nunc elit, venenatis vitae',
     event_date: '2024-07-16 18:00:00',
     organizer: 'Organizer 8'
   },
   {
     title: 'Event 9',
-    description: 'Lorem ipsum....',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam interdum accumsan accumsan. Aenean rhoncus odio sed quam pulvinar, at scelerisque mi dictum. Quisque nunc elit, venenatis vitae',
     event_date: '2024-07-17 18:00:00',
     organizer: 'Organizer 9'
   },
   {
     title: 'Event 10',
-    description: 'Lorem ipsum....',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam interdum accumsan accumsan. Aenean rhoncus odio sed quam pulvinar, at scelerisque mi dictum. Quisque nunc elit, venenatis vitae',
     event_date: '2024-07-18 18:00:00',
     organizer: 'Organizer 10'
   },
   {
     title: 'Event 11',
-    description: 'Lorem ipsum....',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam interdum accumsan accumsan. Aenean rhoncus odio sed quam pulvinar, at scelerisque mi dictum. Quisque nunc elit, venenatis vitae',
     event_date: '2024-07-19 18:00:00',
+    organizer: 'Organizer 11'
+  },
+  {
+    title: 'Event 12',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam interdum accumsan accumsan. Aenean rhoncus odio sed quam pulvinar, at scelerisque mi dictum. Quisque nunc elit, venenatis vitae',
+    event_date: '2024-07-21 18:00:00',
+    organizer: 'Organizer 12'
+  },
+  {
+    title: 'Event 13',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam interdum accumsan accumsan. Aenean rhoncus odio sed quam pulvinar, at scelerisque mi dictum. Quisque nunc elit, venenatis vitae',
+    event_date: '2024-07-22 18:00:00',
+    organizer: 'Organizer 10'
+  },
+  {
+    title: 'Event 13',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam interdum accumsan accumsan. Aenean rhoncus odio sed quam pulvinar, at scelerisque mi dictum. Quisque nunc elit, venenatis vitae',
+    event_date: '2024-07-23 18:00:00',
+    organizer: 'Organizer 11'
+  },
+  {
+    title: 'Event 14',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam interdum accumsan accumsan. Aenean rhoncus odio sed quam pulvinar, at scelerisque mi dictum. Quisque nunc elit, venenatis vitae',
+    event_date: '2024-07-24 18:00:00',
+    organizer: 'Organizer 9'
+  },
+  {
+    title: 'Event 15',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam interdum accumsan accumsan. Aenean rhoncus odio sed quam pulvinar, at scelerisque mi dictum. Quisque nunc elit, venenatis vitae',
+    event_date: '2024-07-25 18:00:00',
+    organizer: 'Organizer 10'
+  },
+  {
+    title: 'Event 16',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam interdum accumsan accumsan. Aenean rhoncus odio sed quam pulvinar, at scelerisque mi dictum. Quisque nunc elit, venenatis vitae',
+    event_date: '2024-07-26 18:00:00',
     organizer: 'Organizer 11'
   },
 ];

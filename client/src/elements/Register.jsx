@@ -64,12 +64,11 @@ function Register() {
       };
   return (
     <div className="container mt-5 w-50 p-3">
-    <h2>Register for the Event</h2>
-    {success && <div className="alert alert-success">Registration successful!</div>}
-    <form onSubmit={handleSubmit}>
-      <div className="form-group row p-2">
-        <label htmlFor="fullName" className="col-sm-3 col-form-label">Full Name</label>
-        <div className="col-sm-9">
+      <h2>Event registration</h2>
+      {success && <div className="alert alert-success">Registration successful!</div>}
+      <form onSubmit={handleSubmit}>
+        <div className="form-group p-2">
+          <label htmlFor="fullName">Full Name</label>
           <input
             type="text"
             className={`form-control ${errors.fullName ? 'is-invalid' : ''}`}
@@ -80,10 +79,8 @@ function Register() {
           />
           {errors.fullName && <div className="invalid-feedback">{errors.fullName}</div>}
         </div>
-      </div>
-      <div className="form-group row p-2">
-        <label htmlFor="email" className="col-sm-3 col-form-label">Email</label>
-        <div className="col-sm-9">
+        <div className="form-group p-2">
+          <label htmlFor="email">Email</label>
           <input
             type="email"
             className={`form-control ${errors.email ? 'is-invalid' : ''}`}
@@ -94,10 +91,8 @@ function Register() {
           />
           {errors.email && <div className="invalid-feedback">{errors.email}</div>}
         </div>
-      </div>
-      <div className="form-group row p-2">
-        <label htmlFor="birthDate" className="col-sm-3 col-form-label">Birth Date</label>
-        <div className="col-sm-9">
+        <div className="form-group p-2">
+          <label htmlFor="birthDate">Birth Date</label>
           <input
             type="date"
             className={`form-control ${errors.birthDate ? 'is-invalid' : ''}`}
@@ -108,57 +103,56 @@ function Register() {
           />
           {errors.birthDate && <div className="invalid-feedback">{errors.birthDate}</div>}
         </div>
-      </div>
-      <div className="form-group row p-2">
-        <label className="col-sm-12 col-form-label text-center">Where did you hear about this event?</label>
-        <div className="col-sm-12 text-center">
-          <div className="form-check form-check-inline">
-            <input
-              className="form-check-input"
-              type="radio"
-              id="hearFromSM"
-              name="hearFrom"
-              value="SM"
-              checked={formData.hearFrom === 'SM'}
-              onChange={handleChange}
-            />
-            <label className="form-check-label" htmlFor="hearFromSM">Social Media</label>
+        <div className="form-group row p-2">
+          <label className="col-sm-12 col-form-label text-center">Where did you hear about this event?</label>
+          <div className="col-sm-12 text-center">
+            <div className="form-check form-check-inline">
+              <input
+                className="form-check-input"
+                type="radio"
+                id="hearFromSM"
+                name="hearFrom"
+                value="SM"
+                checked={formData.hearFrom === 'SM'}
+                onChange={handleChange}
+              />
+              <label className="form-check-label" htmlFor="hearFromSM">Social Media</label>
+            </div>
+            <div className="form-check form-check-inline">
+              <input
+                className="form-check-input"
+                type="radio"
+                id="hearFromFR"
+                name="hearFrom"
+                value="FR"
+                checked={formData.hearFrom === 'FR'}
+                onChange={handleChange}
+              />
+              <label className="form-check-label" htmlFor="hearFromFR">Friends</label>
+            </div>
+            <div className="form-check form-check-inline">
+              <input
+                className="form-check-input"
+                type="radio"
+                id="hearFromFM"
+                name="hearFrom"
+                value="FM"
+                checked={formData.hearFrom === 'FM'}
+                onChange={handleChange}
+              />
+              <label className="form-check-label" htmlFor="hearFromFM">From Myself</label>
+            </div>
+            {errors.hearFrom && <div className="text-danger">{errors.hearFrom}</div>}
           </div>
-          <div className="form-check form-check-inline">
-            <input
-              className="form-check-input"
-              type="radio"
-              id="hearFromFR"
-              name="hearFrom"
-              value="FR"
-              checked={formData.hearFrom === 'FR'}
-              onChange={handleChange}
-            />
-            <label className="form-check-label" htmlFor="hearFromFR">Friends</label>
-          </div>
-          <div className="form-check form-check-inline">
-            <input
-              className="form-check-input"
-              type="radio"
-              id="hearFromFM"
-              name="hearFrom"
-              value="FM"
-              checked={formData.hearFrom === 'FM'}
-              onChange={handleChange}
-            />
-            <label className="form-check-label" htmlFor="hearFromFM">From Myself</label>
-          </div>
-          {errors.hearFrom && <div className="text-danger">{errors.hearFrom}</div>}
         </div>
-      </div>
-      <div className="form-group row p-2">
-        <div className="col-sm-12 text-center">
+        <div className="form-group row p-2">
+          <div className="col-sm-12 text-center">
             <Link className='btn btn-link' to='/'>Back</Link>
             <button type="submit" className="btn btn-primary">Register</button>
+          </div>
         </div>
-      </div>
-    </form>
-  </div>
+      </form>
+    </div>
   )
 }
 
