@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import Home from './elements/Home'
@@ -14,7 +14,7 @@ function App(){
         <Route path='/view/:id' element={<View />} />
       </Routes>
     </BrowserRouter>
-  );
-};
+  )
+}
 
-export default App;
+export default App

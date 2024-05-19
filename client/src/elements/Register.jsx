@@ -1,67 +1,92 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
-import {Link, useNavigate, useParams} from 'react-router-dom'
+import {Link, useParams} from 'react-router-dom'
 
 function Register() {
-    const { id } = useParams();
+    const { id } = useParams()
     const [formData, setFormData] = useState({
         fullName: '',
         email: '',
         birthDate: '',
         hearFrom: '',
         event_id: id
-      });
+    })
     
-      const [errors, setErrors] = useState({});
-      const [success, setSuccess] = useState(false);
+    const [errors, setErrors] = useState({})
+    const [success, setSuccess] = useState(false)
 
-      useEffect(() => {
+    useEffect(() => {
         setFormData((prevData) => ({
-          ...prevData,
-          event_id: id
-        }));
-      }, [id]);
-
-      const validate = () => {
-        let errors = {};
-        if (!formData.fullName) errors.fullName = 'Full name is required';
-        if (!formData.email) errors.email = 'Email is required';
-        if (!formData.birthDate) errors.birthDate = 'Birth date is required';
-        if (!formData.hearFrom) errors.hearFrom = 'This field is required';
-        return errors;
-      };
-    
-      const handleChange = (e) => {
-        const { name, value } = e.target;
-        setFormData({
-          ...formData,
-          [name]: value
-        });
-      };
-    
-      const handleSubmit = async (e) => {
-        e.preventDefault();
-        const validationErrors = validate();
-        if (Object.keys(validationErrors).length > 0) {
-          setErrors(validationErrors);
-          return;
-        }
-    
-        try {
-          await axios.post('/api/register', formData);
-          setSuccess(true);
-          setFormData({
-            fullName: '',
-            email: '',
-            birthDate: '',
-            hearFrom: '',
+            ...prevData,
             event_id: id
-          });
-          setErrors({});
-        } catch (error) {
-          console.error('Ошибка при отправке данных:', error);
+        }))
+    }, [id])
+
+    const validate = () => {
+        let errors = {}
+
+        if (!formData.fullName) {
+            errors.fullName = 'Full name is required'
+        } else if (formData.fullName.length < 3 || formData.fullName.length > 100) {
+            errors.fullName = 'Full name must be between 3 and 100 characters'
+        } else if (!/^[a-zA-Z\- ]+$/.test(formData.fullName)) {
+            errors.fullName = 'Full name can only contain letters, spaces, and hyphens'
         }
-      };
+
+        if (!formData.email) {
+            errors.email = 'Email is required'
+        } else if (!/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(formData.email)) {
+            errors.email = 'Invalid email address'
+        }
+
+        if (!formData.birthDate) {
+            errors.birthDate = 'Birth date is required'
+        } else {
+            const today = new Date()
+            const birthDate = new Date(formData.birthDate)
+            const ageDiff = today.getFullYear() - birthDate.getFullYear()
+            const isUnderAge = ageDiff < 14 || (ageDiff === 14 && today.getMonth() < birthDate.getMonth())
+            if (isUnderAge) {
+                errors.birthDate = 'You must be at least 14 years old'
+            }
+        }
+
+        if (!formData.hearFrom) errors.hearFrom = 'This field is required'
+
+        return errors
+    }
+    
+    const handleChange = (e) => {
+        const { name, value } = e.target
+        setFormData({
+            ...formData,
+            [name]: value
+        })
+    }
+    
+    const handleSubmit = async (e) => {
+        e.preventDefault()
+        const validationErrors = validate()
+        if (Object.keys(validationErrors).length > 0) {
+            setErrors(validationErrors)
+            return
+        }
+
+        try {
+        await axios.post('/api/register', formData)
+            setSuccess(true)
+            setFormData({
+                fullName: '',
+                email: '',
+                birthDate: '',
+                hearFrom: '',
+                event_id: id
+            })
+            setErrors({})
+        } catch (error) {
+            console.error('post data error:', error)
+        }
+    }
   return (
     <div className="container mt-5 w-50 p-3">
       <h2>Event registration</h2>
