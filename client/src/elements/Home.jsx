@@ -12,12 +12,7 @@ function Home() {
     useEffect(() => {
         const fetchEvents = async () => {
             try {
-                const response = await axios.get('/api/events', {
-                  headers: {
-                    Accept: "application/json",
-                    "User-Agent": "axios 0.21.1"
-                  }
-                });
+                const response = await axios.get('/api/events')
                 setEvents(response.data)
             } catch (error) {
                 console.error('Ошибка при получении событий: ', error)
