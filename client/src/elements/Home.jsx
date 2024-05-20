@@ -83,7 +83,7 @@ function Home() {
       <nav>
         <ul className="pagination justify-content-center">
           {Array.from({ length: Math.ceil(events.length / eventsPerPage) }, (_, i) => (
-            <li key={i + 1} className="page-item">
+            <li key={i + 1} className={`page-item ${currentPage === i + 1 ? 'active' : ''}`}>
               <a onClick={() => paginate(i + 1)} href="#!" className="page-link">
                 {i + 1}
               </a>
