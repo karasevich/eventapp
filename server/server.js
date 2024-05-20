@@ -9,8 +9,10 @@ dotenv.config()
 
 const allowedOrigins = ['http://localhost:3000', 'https://eventapp-nodejs-mysql-35971d322429.herokuapp.com'];
 
-app.use(cors({
-  origin: function (origin, callback) {
+
+
+const app = express()
+app.use(cors({origin: function (origin, callback) {
     if (!origin || allowedOrigins.indexOf(origin) !== -1) {
       callback(null, true);
     } else {
@@ -19,7 +21,6 @@ app.use(cors({
   }
 }));
 
-const app = express()
 const PORT = process.env.PORT || 5000
 
 // app.use(express.static(path.join(__dirname, "public")))
