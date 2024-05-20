@@ -12,7 +12,7 @@ function Home() {
     useEffect(() => {
         const fetchEvents = async () => {
             try {
-                const response = await axios.get('/api/events')
+                const response = await axios.get('/api/events/')
                 setEvents(response.data)
             } catch (error) {
                 console.error('Ошибка при получении событий: ', error)
