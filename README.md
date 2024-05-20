@@ -41,13 +41,16 @@ Create a new MySQL database for your application.
 
 # Create a new MySQL database for your application.
 ```shell
-node migrate.js
+node migration.js
 node seed.js
 ```
 
 # 6. Start the server and client concurrently in development mode
 ```shell
-npm run dev
+root/server/npm run dev
+```
+```shell
+root/client/npm start
 ```
 # 7. Accessing the Application
 Your application should now be running. You can access the client at http://localhost:3000.
