@@ -30,10 +30,10 @@ npm install
 Create a .env file in the root/server directory of your project.
 Add the following environment variables to the .env file:
 
-DB_HOST=your_database_host
-DB_USER=your_database_user
-DB_PASSWORD=your_database_password
-DB_NAME=eventapp
+DB_HOST=your_database_host <br>
+DB_USER=your_database_user<br>
+DB_PASSWORD=your_database_password<br>
+DB_NAME=eventapp<br>
 
 # 5. Set Up the Database
 Make sure your MySQL database server is running.
