@@ -7,11 +7,23 @@ const mysql = require('mysql2')
 
 dotenv.config()
 
+const allowedOrigins = ['http://localhost:3000', 'https://eventapp-nodejs-mysql-35971d322429.herokuapp.com/'];
+
+app.use(cors({
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.indexOf(origin) !== -1) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  }
+}));
+
 const app = express()
 const PORT = process.env.PORT || 5000
 
 app.use(express.static(path.join(__dirname, "public")))
-app.use(cors())
+// app.use(cors())
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 
