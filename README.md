@@ -6,27 +6,27 @@ Node.js and npm installed on your machine
 MySQL database server installed and running
 
 Steps
-1. Clone the Repository
+# 1. Clone the Repository
 ```shell
 git clone https://github.com/karasevich/eventapp.git
 ```
-2. Navigate to the Project Directory
+# 2. Navigate to the Project Directory
 ```shell
 cd your-repository
 ```
-3. Install Dependencies
+# 3. Install Dependencies
 
-# Install server dependencies
+## Install server dependencies
 ```shell
 cd server
 npm install
 ```
-# Navigate to the client directory and install client dependencies
+## Navigate to the client directory and install client dependencies
 ```shell
 cd client
 npm install
 ```
-4. Configure Environment Variables
+# 4. Configure Environment Variables
 Create a .env file in the root/server directory of your project.
 Add the following environment variables to the .env file:
 
@@ -35,7 +35,7 @@ DB_USER=your_database_user
 DB_PASSWORD=your_database_password
 DB_NAME=eventapp
 
-5. Set Up the Database
+# 5. Set Up the Database
 Make sure your MySQL database server is running.
 Create a new MySQL database for your application.
 
@@ -44,12 +44,12 @@ Create a new MySQL database for your application.
 node migrate.js
 node seed.js
 ```
-6. Start the server and client concurrently in development mode
-# Start the server and client concurrently in development mode
+
+# 6. Start the server and client concurrently in development mode
 ```shell
 npm run dev
 ```
-7. Accessing the Application
+# 7. Accessing the Application
 Your application should now be running. You can access the client at http://localhost:3000.
 The server will be running at http://localhost:5000.
 Additional Notes
