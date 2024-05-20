@@ -16,7 +16,7 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 
 // MySQL connection
-const connection = mysql.createConnection(process.env.CLEARDB_DATABASE_URL)
+const connection = mysql.createConnection(process.env.JAWSDB_URL)
 
 connection.connect(error => {
   if (error) {
